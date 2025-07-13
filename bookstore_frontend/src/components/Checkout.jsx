@@ -56,9 +56,8 @@ const Checkout = () => {
 
     try {
       const token = localStorage.getItem("token");
-      const response = await API.post("/api/orders", orderData, {
-        headers: { Authorization: `Bearer ${token}` },
-      });
+      const response = await API.post("/api/orders/create", orderData);
+      console.log(response.data);
 
       // Save address for future use
       localStorage.setItem("shippingAddress", JSON.stringify(shippingAddress));
